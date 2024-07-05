@@ -3,25 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemInput = document.getElementById('itemInput');
     const itemList = document.getElementById('itemList');
 
+    // Load items from localStorage
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+    items.forEach(item => addItemToDOM(item.id, item.name, item.completed));
+
     itemForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const itemName = itemInput.value.trim();
         if (itemName !== '') {
-            addItem(itemName);
+            const itemId = Date.now().toString();
+            addItem(itemId, itemName, false);
             itemInput.value = '';
-        }
-    });
-
-    itemList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'LI') {
-            e.target.classList.toggle('completed');
-        }
-    });
-
-    function addItem(name) {
-        const li = document.createElement('li');
-        li.textContent = name;
-        itemList.appendChild(li);
-    }
-});
+        }
+    });
