@@ -27,10 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function addItemToDOM(id, name, completed) {
         const item = document.createElement('li');
         item.textContent = name;
+
+        // Checkbox button
+        const checkButton = document.createElement('button');
+        checkButton.classList.add('check-button');
         if (completed) {
             item.classList.add('completed');
+            checkButton.classList.add('checked');
         }
+        checkButton.addEventListener('click', () => {
+            item.classList.toggle('completed');
+            checkButton.classList.toggle('checked');
 
+            // Update completed status in items array and localStorage
+            const index = items.findIndex(item => item.id === id);
+            if (index !== -1) {
+                items[index].completed = !items[index].completed;
+                localStorage.setItem('items', JSON.stringify(items));
+            }
+        });
+
+        item.appendChild(checkButton);
         itemList.appendChild(item);
     }
 });
