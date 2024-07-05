@@ -13,7 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemName = itemInput.value.trim();
         if (itemName !== '') {
             const itemId = Date.now().toString();
-            addItem(itemId, itemName, false);
+            addItem(itemId, itemName, false); // Panggil fungsi addItem() untuk menambahkan item ke dalam items
             itemInput.value = '';
-        }
-    });
+            addItemToDOM(itemId, itemName, false); // Tambahkan item ke dalam DOM setelah ditambahkan ke dalam items
+        }
+    });
+
+    function addItem(id, name, completed) {
+        items.push({ id, name, completed });
+        localStorage.setItem('items', JSON.stringify(items));
+    }
+
+    function addItemToDOM(id, name, completed) {
+        const item = document.createElement('li');
+        item.textContent = name;
+        if (completed) {
+            item.classList.add('completed');
+        }
+
+        itemList.appendChild(item);
+    }
+});
