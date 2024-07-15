@@ -11,20 +11,23 @@ body {
 .container {
     text-align: center;
     background-color: white;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    width: 80%;
+    max-width: 500px;
 }
 
 .weather-input {
     margin-bottom: 20px;
+    position: relative;
 }
 
 #weather {
     padding: 10px;
     font-size: 16px;
-    width: 70%;
+    width: calc(100% - 100px);
     margin-right: 10px;
 }
 
@@ -44,6 +47,7 @@ button:hover {
 ul {
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 li {
@@ -70,19 +74,26 @@ li.checked {
 
 .icons {
     position: absolute;
-    bottom: 20px;
+    top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px;
 }
 
 .sun-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .cloud-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
