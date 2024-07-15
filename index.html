@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vacay's Stuffs</title>
+    <title>Holiday Me!</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Vacay's Stuffs</h1>
-        <input type="text" id="weatherInput" placeholder="How's the weather?">
-        <button onclick="checkWeather()">Ask Us</button>
-        <ul id="itemsList"></ul>
-        <img src="sunny.png" alt="Sun" class="sun">
-        <img src="cloud.png" alt="Cloud" class="cloud">
+        <h1>Holiday Me!</h1>
+        <div class="weather-input">
+            <label for="weather">How's the weather today?</label>
+            <input type="text" id="weather" placeholder="Enter weather type (fall, winter, summer, rainy)">
+            <button id="askButton">Ask Us</button>
+        </div>
+        <ul id="itemList"></ul>
+        <div class="icons">
+            <img src="sunny.png" alt="Sun Icon" class="sun-icon">
+            <img src="cloud.png" alt="Cloud Icon" class="cloud-icon">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
