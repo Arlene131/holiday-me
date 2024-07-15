@@ -1,39 +1,33 @@
-function checkWeather() {
-    const weather = document.getElementById('weatherInput').value.toLowerCase();
-    const itemsList = document.getElementById('itemsList');
-    itemsList.innerHTML = '';
+document.getElementById('askButton').addEventListener('click', () => {
+    const weather = document.getElementById('weather').value.toLowerCase();
+    const itemList = document.getElementById('itemList');
+    itemList.innerHTML = '';
 
-    let items = [];
+    const items = {
+        fall: ['sweater', 'cardigan', 'jacket', 'long pant', 'gloves', 'boots', 'umbrella', 'raincoat', 'lipbalm', 'moisturizer'],
+        winter: ['sweater', 'boots', 'thermal underwear', 'socks', 'beanie', 'raincoat', 'umbrella', 'lipbalm', 'moisturizer', 'handcream', 'sunscreen'],
+        summer: ['shirt', 'pants', 'swimsuit', 'cap', 'glasses', 'sunglasses', 'uv protection', 'lipbalm', 'aloevera gel', 'insect repellent'],
+        rainy: ['sweater', 'cardigan', 'jacket', 'long pant', 'gloves', 'boots', 'umbrella', 'raincoat', 'lipbalm', 'moisturizer']
+    };
 
-    switch (weather) {
-        case 'fall':
-        case 'rainy':
-            items = ['Sweater', 'Cardigan', 'Jacket', 'Long Pant', 'Gloves', 'Boots', 'Umbrella', 'Raincoat', 'Lipbalm', 'Moisturizer'];
-            break;
-        case 'winter':
-            items = ['Sweater', 'Boots', 'Thermal Underwear', 'Socks', 'Beanie', 'Raincoat', 'Umbrella', 'Lipbalm', 'Moisturizer', 'Handcream', 'Sunscreen'];
-            break;
-        case 'summer':
-            items = ['Shirt', 'Pants', 'Swimsuit', 'Cap', 'Glasses', 'Sunglasses', 'UV Protection', 'Lipbalm', 'Aloe Vera Gel', 'Insect Repellent'];
-            break;
-        default:
-            items = [];
-            break;
-    }
+    const selectedItems = items[weather] || [];
 
-    items.forEach(item => {
+    selectedItems.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.innerHTML = <input type="checkbox" onclick="toggleComplete(this)"> ${item};
-        itemsList.appendChild(listItem);
-    });
-}
+        listItem.textContent = item;
 
-function toggleComplete(checkbox) {
-    const listItem = checkbox.parentElement;
-    if (checkbox.checked) {
-        listItem.classList.add('completed');
-    } else {
-        listItem.classList.remove('completed');
-    }
-}
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'checkbox';
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                listItem.classList.add('checked');
+            } else {
+                listItem.classList.remove('checked');
+            }
+        });
 
+        listItem.appendChild(checkbox);
+        itemList.appendChild(listItem);
+    });
+});
