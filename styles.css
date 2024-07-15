@@ -1,83 +1,72 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
+    background-color: #D8B4A0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9); /* Memberikan sedikit transparansi */
+    background-color: #E0E0E0;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    max-width: 100%;
+    position: relative;
 }
 
-h1 {
-    text-align: center;
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    justify-content: space-between;
-}
-
-input[type="text"] {
-    flex: 1;
+.container input {
     padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+    width: calc(100% - 50px);
 }
 
-button {
-    padding: 10px;
+.container button {
+    padding: 10px 15px;
     border: none;
-    background-color: #5cb85c;
-    color: white;
     border-radius: 5px;
+    background-color: #A35244;
+    color: white;
     cursor: pointer;
+    margin-left: 10px;
 }
 
-button:hover {
-    background-color: #4cae4c;
-}
-
-ul {
+.container ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.container ul li {
+    margin: 10px 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-li.completed {
-    text-decoration: line-through;
-    color: #aaa;
-}
-
-.check-btn {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    background-color: white;
-    cursor: pointer;
+.container ul li input {
     margin-right: 10px;
 }
 
-.check-btn.completed {
-    background-color: #5cb85c;
-    border-color: #5cb85c;
+.container ul li.completed {
+    text-decoration: line-through;
+}
+
+.sun, .cloud {
+    position: absolute;
+}
+
+.sunny {
+    bottom: -30px;
+    left: -30px;
+}
+
+.cloud {
+    top: -30px;
+    right: -30px;
 }
