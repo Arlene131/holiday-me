@@ -5,12 +5,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f5f5f5;
+    background-color: #D6B3B3;
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: #F0C9C9;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
