@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checklist Perjalanan</title>
+    <title>Vacay's Stuffs</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.png" type="image/x-icon"> <!-- Favicon -->
 </head>
 <body>
     <div class="container">
-        <h1>Checklist Perjalanan</h1>
-        <form id="itemForm">
-            <input type="text" id="itemInput" placeholder="Tambahkan barang..." required>
-            <button type="submit">Tambah</button>
-        </form>
-        <ul id="itemList"></ul>
+        <h1>Vacay's Stuffs</h1>
+        <input type="text" id="weatherInput" placeholder="How's the weather?">
+        <button onclick="checkWeather()">Ask Us</button>
+        <ul id="itemsList"></ul>
+        <img src="sunny.png" alt="Sun" class="sun">
+        <img src="cloud.png" alt="Cloud" class="cloud">
     </div>
     <script src="script.js"></script>
 </body>
